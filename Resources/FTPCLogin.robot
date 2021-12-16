@@ -14,7 +14,7 @@ ${defpassword}  admin
 LoginToFTPC
    # [arguments]  ${appURL}  ${appbrowser}  ${appusername} ${apppassword}
 
-    OPEN BROWSER   ${FTPCPlantOperationsURL.${defenv}}      headlessfirefox
+    OPEN BROWSER   ${FTPCPlantOperationsURL.${defenv}}      firefox
     Maximize Browser Window
     ${Pgtitle}=  Get Title
     Log Title
