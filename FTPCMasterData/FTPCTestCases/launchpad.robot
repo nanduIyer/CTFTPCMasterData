@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation  CooperTires FTPC Testing Automation
+Resource  ../../Resources/Launchbrowser.robot
 Resource  ../../Resources/FTPCLogin.robot
 Resource  ../../Resources/FTPCPlantConfiguration.robot
 
-Suite Setup    FTPCLogin.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[0]
-Suite Teardown   FTPCLogin.LogOutandCloseBrowser
-
+#Suite Setup    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[1]
+Suite Teardown   Launchbrowser.LogOutandCloseBrowser
 
 
 *** Variables ***
@@ -19,22 +19,31 @@ ${defpassword}  admin
 &{username}    admin=uatmaster  operator=uatmaster
 &{password}    admin=123  operator=123
 #&{DPageContains}    Home=Dashboard  PConfig=PlantConfiguration
+
 ${DPageContains}    Dashboard
+${Vdli}     Dashboard
 
 *** Test Cases ***
-First Launchand login to URL
-    [Documentation]  CooperTire-MES Plant Configuration Test Cases
-    [tags]  Validating Plant Config Gird
+Testing with all Browser
+    [Documentation]     Launching the browser
+    ${length}=    Get Length    ${Browser}
+    Log     ${length}
 
-    ${CurrentPgHdr}=     FTPCLogin.LoginToFTPC   ${username.${defUsername}}  ${password.${defpassword}}
-    Log     ${CurrentPgHdr}
-    Log     ${DPageContains}
-   #Run Keyword IF  "${CurrentPgHdr}"  ==  "${DPageContains}"    LoginSuccess
-   #...     ELSE    LoginFailed
-    #...     END
+    FOR     ${index}    IN RANGE  0      ${length}-1
+        Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[${index}]
+        Log    ${Browser}[${index}]
+
+        ${CurrentPgHdr}=     FTPCLogin.LoginToFTPC   ${username.${defUsername}}  ${password.${defpassword}}
+        Log     ${CurrentPgHdr}
+        Log     ${DPageContains}
+        Run Keyword IF  "${CurrentPgHdr}"=="${DPageContains}"    LoginSuccess
+        ...     ELSE    LoginFailed
 
 
-    FTPCPlantConfiguration.Test PlantConfiguration
+        FTPCPlantConfiguration.Navigating to Plant Config
+        FTPCPlantConfiguration.Reading Plant List Table
+        Close Browser
+    END
 
 
 *** Keywords ***
