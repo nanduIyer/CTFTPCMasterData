@@ -1,16 +1,17 @@
 *** Settings ***
-Documentation  CooperTires FTPC Testing Automation
+Library  SeleniumLibrary
 Resource  ../../Resources/Launchbrowser.robot
 Resource  ../../Resources/FTPCLogin.robot
 Resource  ../../Resources/FTPCPlantConfiguration.robot
 
 #Suite Setup    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[1]
-Suite Teardown   Launchbrowser.LogOutandCloseBrowser
+#Suite Teardown   Launchbrowser.LogOutandCloseBrowser
+
 
 
 *** Variables ***
 ${URL}  http://ta0360:8080/FTPCApps/coopertires
-@{Browser}     firefox     edge    chrome
+@{Browser}     edge     firefox       chrome
 &{FTPCPlantOperationsURL}   qa=http://ta0360:8080/FTPCApps/coopertires  uat=qa=http://ta0360:8080/FTPCApps/coopertires
 ${defenv}  qa
 
@@ -29,7 +30,7 @@ Testing with all Browser
     ${length}=    Get Length    ${Browser}
     Log     ${length}
 
-    FOR     ${index}    IN RANGE  0      ${length}-1
+    FOR     ${index}    IN RANGE  0      ${length}-2
         Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[${index}]
         Log    ${Browser}[${index}]
 
@@ -42,6 +43,9 @@ Testing with all Browser
 
         FTPCPlantConfiguration.Navigating to Plant Config
         FTPCPlantConfiguration.Reading Plant List Table
+        FTPCPlantConfiguration.Editing the Plant Record
+        FTPCPlantConfiguration.Export Plant Config Data
+        FTPCPlantConfiguration.Validate Number of records
         Close Browser
     END
 

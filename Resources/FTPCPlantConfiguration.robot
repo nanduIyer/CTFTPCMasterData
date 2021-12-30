@@ -1,33 +1,43 @@
 *** Settings ***
 Library  SeleniumLibrary
+Variables   ../Library/Locators.py
 
 *** Variables ***
-
+${expectedpgtitle}     Cooper Tires
 
 *** Keywords ***
 Navigating to Plant Config
-    Set Selenium Implicit Wait   100
+    Set Selenium Implicit Wait   ${short_wait_time}
 
-    Click Element   XPath://*[@id="FTPCApps-1332792659"]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img
+    Click Element   ${pc_menu_name}
     Page Should Contain     Plant Configuration
     ${Pgtitle}=  Get Title
     Log Title
+    Run Keyword IF  "${Pgtitle}"=="${expectedpgtitle}"    PCScreenSuccess
+        ...     ELSE    PCScreenFailed
 
-    Press Keys     XPath://*[@id="BCOR-CooperTiresNavBarImpl"]/div/div/div/div/div/div[1]/div[2]/div/div[1]/div     [RETURN]
+
+PCScreenSuccess
+    Log     Screen "${expectedpgtitle}" identified
+    Press Keys     ${pc_menu_navbar}     [RETURN]
+
+PCScreenFailed
+    Log     Screen "${expectedpgtitle}" not found
+    Close browser
 
 Reading Plant List Table
-    Table Column Should Contain     xpath://*[@id="ResponsiveTable"]    1   Plant ID
-    ${NoofRows}=   Get Element Count   xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr
-    ${NoofColumns}=   Get Element Count   xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[1]/td
+    Table Column Should Contain     ${pc_plant_table}    1   Plant ID
+    ${NoofRows}=   Get Element Count   ${pc_plant_tbl_rows}
+    ${NoofColumns}=   Get Element Count   ${pc_plant_tbl_cols}
     FOR     ${index}    IN RANGE  1      ${NoofRows}+1
         ${PlantID}=     GetText     xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[${index}]/td
         Log      ${PlantID}
         Log     ${index}
     END
-
-
     log     Number of rows found ${NoofRows}
     log     Number of columns found ${NoofColumns}
+
+Editing the Plant Record
     ${FirstRecord}=    Get Text    xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[1]/td
     log     First Record ${FirstRecord}
 
@@ -35,25 +45,85 @@ Reading Plant List Table
     Press Keys     XPath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[1]/td[1]/div    [RETURN]
 
     #Click Edit button
-    Set Browser Implicit Wait   10000
-    Press Keys     XPath://*[@id="BCOR-PlantViewImpl"]/div/div/div/div/div/div[1]/div/div/div[2]/div/div[1]/img    [RETURN]
+    Set Browser Implicit Wait   ${long_wait_time}
+    Press Keys     ${pc_plant_edit_btn}    [RETURN]
 
-
-    Set Browser Implicit Wait   10000
-    Clear Element Text  XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[3]/div/input
-
-    Set Browser Implicit Wait   10000
-    ${getcurrentdescription}=   Get Text    XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[3]/div/input
+    Set Browser Implicit Wait   ${long_wait_time}
+    ${getcurrentdescription}=   Get Value    ${pc_record_edit_plantdesc}
     Log     ${getcurrentdescription}
-    Input Text      XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[3]/div/input        Findlay Plant in OHio
-    Capture Page Screenshot
 
-    Set Browser Implicit Wait   10000
-    Element Should Be Enabled   XPath://*[@id="BCOR-PlantCreateDialogImpl"]/div/div/div[3]/div/div[1]/div
-    Press Keys  XPath://*[@id="BCOR-PlantCreateDialogImpl"]/div/div/div[3]/div/div[1]/div   [RETURN]
+    Set Browser Implicit Wait   ${long_wait_time}
+    ${getcurrentuom}=   Get Value    ${pc_record_edit_UOM}
+    #Select From List By Index     XPath://*[@id="VAADIN_COMBOBOX_OPTIONLIST"]/div/div[2]/table/tbody/tr[1]/td   1
+    #${pc_record_edit_UOM}
+    Log     ${getcurrentuom}
+    Log     ${pc_record_edit_UOM}
 
-    #Selecting first row
-    Press Keys     XPath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[1]/td[1]/div    [RETURN]
+    Set Browser Implicit Wait   ${long_wait_time}
+    ${getcurrentdtformat}=   Get Value    ${pc_record_edit_date_format}
+    Log     ${pc_record_edit_language}
+    Log     ${getcurrentdtformat}
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    ${getcurrentlang}=   Get Value    ${pc_record_edit_language}
+    Log     ${getcurrentlang}
+
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    Clear Element Text      ${pc_record_edit_plantdesc}
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    ${getcurrentdescription}=   Get Value    ${pc_record_edit_plantdesc}
+    Log     ${getcurrentdescription}
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    Input Text     ${pc_record_edit_plantdesc}      FINDLAY
+    ${getcurrentdescription}=   Get Value    ${pc_record_edit_plantdesc}
+    Log     ${getcurrentdescription}
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    ${getcurrentuom}=   Get Value    ${pc_record_edit_UOM}
+    Log      ${getcurrentuom}
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    Click Element     ${pc_record_edit_UOM_element}
+    Set Browser Implicit Wait   ${long_wait_time}
+    Click Element       ${pc_record_edit_uom_Imperial}
+
+    Set Browser Implicit Wait   ${long_wait_time}
+    Element Should Be Enabled   ${pc_record_edit_saveandclose}
+    Press Keys  ${pc_record_edit_saveandclose}    [RETURN]
+
+Export Plant Config Data
+    #Click Export button
+    Set Browser Implicit Wait   ${long_wait_time}
+    Press Keys     ${pc_plant_export_btn}    [RETURN]
+
+    Page Should Contain     Export Data
+    Set Browser Implicit Wait   ${long_wait_time}
+    Click Element     ${pc_plant_export_file}
+    Set Browser Implicit Wait   ${long_wait_time}
+
+    #Page Should Contain     Confirm
+    Wait Until Element Contains    XPath://*[@id="gwt-uid-23"]     Confirm
+    Press Keys     ${pc_plant_export_confirm_btn}   [RETURN]
+    Set Browser Implicit Wait   ${long_wait_time}
+
+Validate Number of records
+    ${expval}=  Set Variable    Total No of Records :
+    ${totnoofrows}=    Get Element Count   ${pc_plant_tbl_rows}
+    Log    ${expval} ${totnoofrows}
+    ${tbllen}     Get Length  ${expval} ${totnoofrows}
+    Log     ${tbllen}
+    ${screennoofrecords}=   Get Text   XPath://*[@id="BCOR-PlantViewImpl"]/div/div/div/div/div/div[5]/div
+    Log     ${screennoofrecords}
+
+    ${scnlen}     Get Length    ${screennoofrecords}
+    Log     ${scnlen}
+#Test Search Box functionality
+
+#Test Sorting Functionality
+
 
 
 
