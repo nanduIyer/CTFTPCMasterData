@@ -11,7 +11,7 @@ Suite Teardown   Launchbrowser.LogOutandCloseBrowser
 
 *** Variables ***
 ${URL}  http://ta0360:8080/FTPCApps/coopertires
-@{Browser}     edge     firefox       chrome
+@{Browser}     headlessfirefox  edge     chrome
 &{FTPCPlantOperationsURL}   qa=http://ta0360:8080/FTPCApps/coopertires  uat=qa=http://ta0360:8080/FTPCApps/coopertires
 ${defenv}  qa
 
