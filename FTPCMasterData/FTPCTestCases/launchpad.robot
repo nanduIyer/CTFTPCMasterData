@@ -5,7 +5,7 @@ Resource  ../../Resources/FTPCLogin.robot
 Resource  ../../Resources/FTPCPlantConfiguration.robot
 
 #Suite Setup    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[1]
-#Suite Teardown   Launchbrowser.LogOutandCloseBrowser
+Suite Teardown   Launchbrowser.LogOutandCloseBrowser
 
 
 
