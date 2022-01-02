@@ -113,17 +113,44 @@ Validate Number of records
     ${expval}=  Set Variable    Total No of Records :
     ${totnoofrows}=    Get Element Count   ${pc_plant_tbl_rows}
     Log    ${expval} ${totnoofrows}
-    ${tbllen}     Get Length  ${expval} ${totnoofrows}
-    Log     ${tbllen}
     ${screennoofrecords}=   Get Text   XPath://*[@id="BCOR-PlantViewImpl"]/div/div/div/div/div/div[5]/div
     Log     ${screennoofrecords}
 
-    ${scnlen}     Get Length    ${screennoofrecords}
-    Log     ${scnlen}
-#Test Search Box functionality
+    #${scnlen}     Get Length    ${screennoofrecords}
+    #Log     ${scnlen}
+    Run Keyword IF  "${expval} ${totnoofrows}"=="${screennoofrecords}"    NoofRecordMatching
+        ...     ELSE    NoofRecordNotMatching
+
+NoofRecordMatching
+    Log     No of records in the Table and Screen are matching
+
+NoofRecordNotMatching
+    Log     No of records in the Table and Screen are not matching
+
+Test Search Box functionality
+    ${noofrows}=   Get Element Count   ${pc_plant_tbl_rows}
+    ${searchvalue}=    Get Search Text Data    ${NoofRows}
+    Log     ${searchvalue}
+    Set Browser Implicit Wait   ${long_wait_time}
+    Press Keys     XPath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[1]/td[1]/div    ENTER
+    Clear Element Text      ${pc_search_box}
+    Set Browser Implicit Wait   ${long_wait_time}
+    Input Text     ${pc_search_box}      ${searchvalue}
+    Set Browser Implicit Wait   ${long_wait_time}
+    Press Keys     ${pc_search_box}      ENTER
+
+
+
 
 #Test Sorting Functionality
 
 
+Get Search Text Data
+    [arguments]  ${TotalRecords}
 
+    ${Searchtext}=     Get Text     xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[${TotalRecords}-1]/td
+    #Run Keyword IF
+    #    ...     ${TotalRecords}>3   Set Variable    ${Searchrow}:${TotalRecords}-1
+    #    ...     ELSE    Set Variable    ${Searchrow}:${TotalRecords}
 
+    [Return]  ${Searchtext}

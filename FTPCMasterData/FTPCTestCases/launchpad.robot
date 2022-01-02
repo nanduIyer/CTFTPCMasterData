@@ -44,9 +44,10 @@ Testing with all Browser
         FTPCPlantConfiguration.Navigating to Plant Config
         FTPCPlantConfiguration.Reading Plant List Table
         FTPCPlantConfiguration.Editing the Plant Record
-        FTPCPlantConfiguration.Export Plant Config Data
         FTPCPlantConfiguration.Validate Number of records
-        Close Browser
+        FTPCPlantConfiguration.Test Search Box functionality
+        #FTPCPlantConfiguration.Export Plant Config Data
+        #Close Browser
     END
 
 

@@ -60,7 +60,8 @@ pc_record_edit_language_serbian = "XPath:/html/body/div[2]/div[4]/div/div[2]/tab
 pc_record_edit_saveandclose = "XPath://*[@id='BCOR-PlantCreateDialogImpl']/div/div/div[3]/div/div[1]/div"
 pc_record_edit_cancel = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[3]/div/div[3]/div"
 #searchbox
-pc_search_box = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[1]/div/div/div[1]/input"
+#pc_search_box = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[1]/div/div/div[1]/input"
+pc_search_box = "XPath://*[@id='BCOR-PlantViewImpl']/div/div/div/div/div/div[1]/div/div/div[1]/input"
 #Total Number of records
 pc_total_noofrecords = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[5]/div"
 
