@@ -41,13 +41,13 @@ Testing with all Browser
         ...     ELSE    LoginFailed
 
 
-        #FTPCPlantConfiguration.Navigating to Plant Config
-        #FTPCPlantConfiguration.Reading Plant List Table
-        #FTPCPlantConfiguration.Editing the Plant Record
-        #FTPCPlantConfiguration.Validate Number of records
-        #FTPCPlantConfiguration.Test Search Box functionality
-        #FTPCPlantConfiguration.Export Plant Config Data
-        #Close Browser
+        FTPCPlantConfiguration.Navigating to Plant Config
+        FTPCPlantConfiguration.Reading Plant List Table
+        FTPCPlantConfiguration.Editing the Plant Record
+        FTPCPlantConfiguration.Validate Number of records
+        FTPCPlantConfiguration.Test Search Box functionality
+        FTPCPlantConfiguration.Export Plant Config Data
+        Close Browser
     END
 
 
