@@ -5,7 +5,7 @@ Resource  ../../Resources/FTPCLogin.robot
 Resource  ../../Resources/FTPCPlantConfiguration.robot
 
 #Suite Setup    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[1]
-Suite Teardown   Launchbrowser.LogOutandCloseBrowser
+#Suite Teardown   Launchbrowser.LogOutandCloseBrowser
 
 
 
@@ -41,11 +41,11 @@ Testing with all Browser
         ...     ELSE    LoginFailed
 
 
-        FTPCPlantConfiguration.Navigating to Plant Config
-        FTPCPlantConfiguration.Reading Plant List Table
-        FTPCPlantConfiguration.Editing the Plant Record
-        FTPCPlantConfiguration.Validate Number of records
-        FTPCPlantConfiguration.Test Search Box functionality
+        #FTPCPlantConfiguration.Navigating to Plant Config
+        #FTPCPlantConfiguration.Reading Plant List Table
+        #FTPCPlantConfiguration.Editing the Plant Record
+        #FTPCPlantConfiguration.Validate Number of records
+        #FTPCPlantConfiguration.Test Search Box functionality
         #FTPCPlantConfiguration.Export Plant Config Data
         #Close Browser
     END
