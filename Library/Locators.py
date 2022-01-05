@@ -9,6 +9,12 @@ very_long_wait_time = 10000
 #Global constants
 ApplicationURL = "http://ta0360:8080/FTPCApps/coopertires"
 
+#Database Connection
+database_server = "TA0365"
+database_port = 1433
+database_name = "PDS_RA_FTPC_QA_TEX"
+database_user = "RAMES_FTPC_QA_TEX"
+database_password = "R@m3!@tax"
 
 # Login Elements
 Login_txt_username = "id:CD-TextField.LogonView.UserName"

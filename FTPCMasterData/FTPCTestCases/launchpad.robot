@@ -1,9 +1,15 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  DatabaseLibrary
+Library  OperatingSystem
+
 Resource  ../../Resources/Launchbrowser.robot
 Resource  ../../Resources/FTPCLogin.robot
 Resource  ../../Resources/FTPCPlantConfiguration.robot
 
+Variables   ../Library/Locators.py
+
+Suite Setup  Connect To Database    pymssql     ${database_name}    ${database_user}   ${database_password}   ${database_server}   ${database_port}
 #Suite Setup    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[1]
 #Suite Teardown   Launchbrowser.LogOutandCloseBrowser
 
@@ -57,8 +63,8 @@ Testing with all Browser
         FTPCPlantConfiguration.Editing the Plant Record
         FTPCPlantConfiguration.Validate Number of records
         FTPCPlantConfiguration.Test Search Box functionality
-        FTPCPlantConfiguration.Export Plant Config Data
-        Close Browser
+        #FTPCPlantConfiguration.Export Plant Config Data
+        #Close Browser
     #END
 
 
