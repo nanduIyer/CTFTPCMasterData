@@ -1,5 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library     ../Library/GUID.py  FTPC
 
 *** Variables ***
 
@@ -13,6 +14,9 @@ LaunchBrowser
     ${Pgtitle}=  Get Title
     Log Title
     Log     {Pgtitle}
+    ${Uniqueid}      geneate_GUID   CTFTPC
+    Set Global Variable    ${Uniqueid}
+    Log     ${Uniqueid}
 
 LogOutandCloseBrowser
         Close Browser

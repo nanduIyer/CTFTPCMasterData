@@ -11,7 +11,7 @@ Resource  ../../Resources/FTPCPlantConfiguration.robot
 
 *** Variables ***
 ${URL}  http://ta0360:8080/FTPCApps/coopertires
-@{Browser}     headlessfirefox  edge     chrome
+@{Browser}       edge    headlessfirefox     chrome
 &{FTPCPlantOperationsURL}   qa=http://ta0360:8080/FTPCApps/coopertires  uat=qa=http://ta0360:8080/FTPCApps/coopertires
 ${defenv}  qa
 
