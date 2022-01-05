@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Library     ../Library/GUID.py  FTPC
+Library     ../Library/utilities.py     FTPC
 
 *** Variables ***
 

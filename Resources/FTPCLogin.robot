@@ -20,7 +20,7 @@ LoginToFTPC
 
     Wait Until Page Contains    Dashboard
     ${PageHeader}=      Get Text    ${db_pghdr}
-
+    Log     ${Uniqueid}
     Log     ${PageHeader}
    [Return]  ${PageHeader}
 

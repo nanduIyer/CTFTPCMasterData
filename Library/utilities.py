@@ -1,8 +1,13 @@
+import time
 
-class Utilities:
+class utilities:
+    ROBOT_LIBRARY_SCOPE = "TEST CASE"
 
-    def Addtwonum(self,a,b):
-            c = a+b
-            return c
+    def __init__(self, appname):
+       self.appname=appname
 
 
+    def geneate_GUID(self,appname):
+        localtime = time.localtime()
+        formatted_time = time.strftime("%Y%m%d%H%M%S", localtime)
+        return formatted_time + "_" + appname
