@@ -19,3 +19,5 @@ Run SQL Query to fetch data
         ${output_data1}=     Execute Sql Script      TestData/TestSQLScript.sql
         Log     ${output_data1}
 
+        ${output_data2}=     Row Count      Select * from WORK_CENTER
+        Log     ${output_data2}
