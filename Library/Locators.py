@@ -6,6 +6,9 @@ very_long_wait_time = 10000
 
 # Browser Elements
 
+#Global constants
+ApplicationURL = "http://ta0360:8080/FTPCApps/coopertires"
+
 
 # Login Elements
 Login_txt_username = "id:CD-TextField.LogonView.UserName"

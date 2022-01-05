@@ -15,24 +15,34 @@ ${URL}  http://ta0360:8080/FTPCApps/coopertires
 &{FTPCPlantOperationsURL}   qa=http://ta0360:8080/FTPCApps/coopertires  uat=qa=http://ta0360:8080/FTPCApps/coopertires
 ${defenv}  qa
 
-${defUsername}  admin
-${defpassword}  admin
+${DPageContains}    Dashboard
+
 &{username}    admin=uatmaster  operator=uatmaster
 &{password}    admin=123  operator=123
-#&{DPageContains}    Home=Dashboard  PConfig=PlantConfiguration
-
-${DPageContains}    Dashboard
-${Vdli}     Dashboard
+${defUsername}  admin
+${defpassword}  admin
 
 *** Test Cases ***
 Testing with all Browser
     [Documentation]     Launching the browser
     ${length}=    Get Length    ${Browser}
     Log     ${length}
+    # For Running the test cases for all 4 major browsers Uncomment the block and comment single browser test
 
-    FOR     ${index}    IN RANGE  0      ${length}-2
-        Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[${index}]
-        Log    ${Browser}[${index}]
+    ################################################
+    #FOR     ${index}    IN RANGE  0      ${length}-2
+    #    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[${index}]
+    #    Log    ${Browser}[${index}]
+
+    #    ${CurrentPgHdr}=     FTPCLogin.LoginToFTPC   ${username.${defUsername}}  ${password.${defpassword}}
+    #    Log     ${CurrentPgHdr}
+    #    Log     ${DPageContains}
+    #    Run Keyword IF  "${CurrentPgHdr}"=="${DPageContains}"    LoginSuccess
+    #    ...     ELSE    LoginFailed
+    ################################################
+    #block the below bock if the test need for all browsers
+
+        Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      edge
 
         ${CurrentPgHdr}=     FTPCLogin.LoginToFTPC   ${username.${defUsername}}  ${password.${defpassword}}
         Log     ${CurrentPgHdr}
@@ -40,6 +50,7 @@ Testing with all Browser
         Run Keyword IF  "${CurrentPgHdr}"=="${DPageContains}"    LoginSuccess
         ...     ELSE    LoginFailed
 
+    ################################################
 
         FTPCPlantConfiguration.Navigating to Plant Config
         FTPCPlantConfiguration.Reading Plant List Table
@@ -48,7 +59,7 @@ Testing with all Browser
         FTPCPlantConfiguration.Test Search Box functionality
         FTPCPlantConfiguration.Export Plant Config Data
         Close Browser
-    END
+    #END
 
 
 *** Keywords ***
