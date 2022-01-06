@@ -6,7 +6,7 @@ Variables   ../Library/Locators.py
 ${expectedpgtitle}     Cooper Tires
 
 *** Keywords ***
-Navigating to Plant Config
+Navigate to Plant Config
     Set Selenium Implicit Wait   ${short_wait_time}
 
     Click Element   ${pc_menu_name}
@@ -19,10 +19,13 @@ Navigating to Plant Config
 
 PCScreenSuccess
     Log     Screen "${expectedpgtitle}" identified
-    Press Keys     ${pc_menu_navbar}     [RETURN]
+    Press Keys     ${pm_plant_config_menu}     [RETURN]
+
+    capture page screenshot    Images/${Uniqueid}PCScreenSuccess.png
 
 PCScreenFailed
     Log     Screen "${expectedpgtitle}" not found
+    capture page screenshot    Images/${Uniqueid}pcscreenfailed.png
     Close browser
 
 Reading Plant List Table
@@ -99,11 +102,13 @@ Export Plant Config Data
     Set Browser Implicit Wait   ${long_wait_time}
     Press Keys     ${pc_plant_export_btn}    [RETURN]
 
+    Wait Until Page Contains    Export Data
     Page Should Contain     Export Data
     Set Browser Implicit Wait   ${long_wait_time}
     Click Element     ${pc_plant_export_file}
     Set Browser Implicit Wait   ${long_wait_time}
 
+    Wait Until Page Contains    Confirm
     #Page Should Contain     Confirm
     Wait Until Element Contains    XPath://*[@id="gwt-uid-23"]     Confirm
     Press Keys     ${pc_plant_export_confirm_btn}   [RETURN]

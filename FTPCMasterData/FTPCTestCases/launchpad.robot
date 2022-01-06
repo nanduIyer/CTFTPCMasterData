@@ -58,12 +58,12 @@ Testing with all Browser
 
     ################################################
 
-        FTPCPlantConfiguration.Navigating to Plant Config
+        FTPCPlantConfiguration.Navigate to Plant Config
         FTPCPlantConfiguration.Reading Plant List Table
         FTPCPlantConfiguration.Editing the Plant Record
         FTPCPlantConfiguration.Validate Number of records
         FTPCPlantConfiguration.Test Search Box functionality
-        #FTPCPlantConfiguration.Export Plant Config Data
+        FTPCPlantConfiguration.Export Plant Config Data
         #Close Browser
     #END
 
