@@ -27,6 +27,8 @@ db_pghdr = "XPath:/html/body/div[1]/div/div[2]/div/div[1]/div/div/div[2]/div/div
 
 #######################################################################################################
 #Main Master Menu
+top_left_image_menu = "XPath://*[@id='FTPCApps-1332792659']/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img"
+
 plant_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[1]/div"
 part_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[2]/div"
 storage_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[1]/div"
@@ -52,62 +54,6 @@ pm_area_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/d
 pm_wc_type_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[1]/div[2]/div/div[3]/div"
 pm_wc_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[1]/div[2]/div/div[4]/div"
 #######################################################################################################
-
-# Part Master Menu's
-
-#######################################################################################################
-
-# Storage Master Menu's
-
-#######################################################################################################
-
-# Carrier Master Menu's
-cm_rack_type_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[1]/div"
-cm_rack_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[2]/div"
-cm_letoff_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[3]/div"
-cm_supply_bin_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[4]/div"
-cm_silo_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[5]/div"
-cm_Carcass_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[6]/div"
-#######################################################################################################
-
-# Deviation Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-# Part Master Menu's
-
-#######################################################################################################
-
-
-#######################################################################################################
-
-#######################################################################################################
-
-#######################################################################################################
-
 # Plant Configuration screen Elements. Element variable name should start with plc. example plc_table
 # if there is any popup page example plant add screen example plc_add_plantid, edit popup example plc_edit_plantid
 pc_menu_name = "XPath://*[@id='FTPCApps-1332792659']/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img"
@@ -156,6 +102,73 @@ pc_record_edit_cancel = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/d
 pc_search_box = "XPath://*[@id='BCOR-PlantViewImpl']/div/div/div/div/div/div[1]/div/div/div[1]/input"
 #Total Number of records
 pc_total_noofrecords = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[5]/div"
+
+#######################################################################################################
+
+# Part Master Menu's
+
+#######################################################################################################
+
+# Storage Master Menu's
+
+#######################################################################################################
+
+# Carrier Master Menu's
+cm_rack_type_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[1]/div"
+cm_rack_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[2]/div"
+cm_letoff_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[3]/div"
+cm_supply_bin_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[4]/div"
+cm_silo_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[5]/div"
+cm_Carcass_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[2]/div/div[6]/div"
+#######################################################################################################
+#Carrier RAck Type Config screen
+cm_rtc_add_btn = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[1]/img"
+cm_rtc_edit_btn = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[3]/img"
+cm_rtc_delete_btn = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[5]/img"
+cm_rtc_exp_temp_btn = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[7]/img"
+cm_rtc_imp_data_btn = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[9]/img"
+cm_rtc_download_btn = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[11]/img"
+
+cm_rtc_table_hdr = "XPath://*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[3]/div/div[1]/div[1]/div/table/tbody/tr/td[1]/div[3]"
+cm_rtc_table_dtl = "//*[@id='BCOR-RackTypeViewImpl']/div/div/div/div/div/div[3]/div/div[2]/div[1]/table/tbody/tr[1]/td[1]"
+cm_rtc_imp_file_input = "XPath://*[@id='BCOR-RackTypeConfigExcelViewImpl']/div/div/div/div/div/div[1]/div/div/div[1]/div/div/div/form/div/input[2]"
+cm_rtc_imp_upload_btn = "XPath://*[@id='BCOR-RackTypeConfigExcelViewImpl']/div/div/div/div/div/div[1]/div/div/div[1]/div/div/div/form/div/div"
+
+#######################################################################################################
+
+# Deviation Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+# Part Master Menu's
+
+#######################################################################################################
+
+
+#######################################################################################################
 
 #######################################################################################################
 

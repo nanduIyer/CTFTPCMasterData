@@ -5,7 +5,9 @@ Library  OperatingSystem
 
 Resource  ../../Resources/Launchbrowser.robot
 Resource  ../../Resources/FTPCLogin.robot
-Resource  ../../Resources/FTPCPlantConfiguration.robot
+#Resource  ../../Resources/FTPCPlantConfiguration.robot
+Resource  ../../Resources/RackTypeConfig.robot
+
 
 Variables   ../Library/Locators.py
 
@@ -58,12 +60,16 @@ Testing with all Browser
 
     ################################################
 
-        FTPCPlantConfiguration.Navigate to Plant Config
-        FTPCPlantConfiguration.Reading Plant List Table
-        FTPCPlantConfiguration.Editing the Plant Record
-        FTPCPlantConfiguration.Validate Number of records
-        FTPCPlantConfiguration.Test Search Box functionality
-        FTPCPlantConfiguration.Export Plant Config Data
+
+        RackTypeConfig.Navigate to Rack Type Menu
+        RackTypeConfig.Import Date from excel file
+
+        #FTPCPlantConfiguration.Navigate to Plant Config
+        #FTPCPlantConfiguration.Reading Plant List Table
+        #FTPCPlantConfiguration.Editing the Plant Record
+        #FTPCPlantConfiguration.Validate Number of records
+        #FTPCPlantConfiguration.Test Search Box functionality
+        #FTPCPlantConfiguration.Export Plant Config Data
         #Close Browser
     #END
 
