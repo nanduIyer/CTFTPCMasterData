@@ -29,8 +29,9 @@ db_pghdr = "XPath:/html/body/div[1]/div/div[2]/div/div[1]/div/div/div[2]/div/div
 #Main Master Menu
 top_left_image_menu = "XPath://*[@id='FTPCApps-1332792659']/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img"
 
-plant_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[1]/div"
-part_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[2]/div"
+#First Level Menu
+plant_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[1]/div[1]/div"
+part_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[2]/div[1]/div"
 storage_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[1]/div"
 carrier_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[4]/div[1]/div"
 deviation_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[5]/div[1]/div"
@@ -47,8 +48,7 @@ tool_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/
 scrap_master_menu = "Xpath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[16]/div[1]/div"
 workaway_master_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl'']/div/div/div/div/div/div[17]/div[1]/div"
 #######################################################################################################
-
-#Plant Conf Menu's
+#Plant Conf Menu's Second level menu
 pm_plant_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[1]/div[2]/div/div[1]/div"
 pm_area_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[1]/div[2]/div/div[2]/div"
 pm_wc_type_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[1]/div[2]/div/div[3]/div"
@@ -56,7 +56,7 @@ pm_wc_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div
 #######################################################################################################
 # Plant Configuration screen Elements. Element variable name should start with plc. example plc_table
 # if there is any popup page example plant add screen example plc_add_plantid, edit popup example plc_edit_plantid
-pc_menu_name = "XPath://*[@id='FTPCApps-1332792659']/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img"
+#pc_menu_name = "XPath://*[@id='FTPCApps-1332792659']/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img"
 pc_plant_table = "xpath://*[@id='ResponsiveTable']"
 pc_plant_tbl_rows = "xpath://*[@id='ResponsiveTable']/div[2]/div[1]/table/tbody/tr"
 pc_plant_tbl_cols = "xpath://*[@id='ResponsiveTable']/div[2]/div[1]/table/tbody/tr[1]/td"

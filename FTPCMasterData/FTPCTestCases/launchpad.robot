@@ -5,8 +5,9 @@ Library  OperatingSystem
 
 Resource  ../../Resources/Launchbrowser.robot
 Resource  ../../Resources/FTPCLogin.robot
-#Resource  ../../Resources/FTPCPlantConfiguration.robot
-Resource  ../../Resources/RackTypeConfig.robot
+Resource  ../../Resources/FTPCPlantConfiguration.robot
+#Resource  ../../Resources/RackTypeConfig.robot
+Resource  ../../Resources/UtilityFunctions.robot
 
 
 Variables   ../Library/Locators.py
@@ -61,15 +62,22 @@ Testing with all Browser
     ################################################
 
 
-        RackTypeConfig.Navigate to Rack Type Menu
-        RackTypeConfig.Import Date from excel file
+        #RackTypeConfig.Navigate to Rack Type Menu
+        #RackTypeConfig.Import Date from excel file
+        UtilityFunctions.Navigate to Currect Screen    Plant Config     ${top_left_image_menu}  Plant Configuration  ${plant_master_menu}   Cooper Tires    ${pm_plant_config_menu}
 
         #FTPCPlantConfiguration.Navigate to Plant Config
-        #FTPCPlantConfiguration.Reading Plant List Table
-        #FTPCPlantConfiguration.Editing the Plant Record
-        #FTPCPlantConfiguration.Validate Number of records
-        #FTPCPlantConfiguration.Test Search Box functionality
-        #FTPCPlantConfiguration.Export Plant Config Data
+        FTPCPlantConfiguration.Read Plant List Table
+        FTPCPlantConfiguration.Edit the Plant Record
+        FTPCPlantConfiguration.Validate Number of records
+        FTPCPlantConfiguration.Test Search Box functionality
+        FTPCPlantConfiguration.Export Plant Config Data
+
+        UtilityFunctions.Navigate to Currect Screen    Rack Type Config    ${top_left_image_menu}  Rack Type Configuration  ${carrier_master_menu}   Cooper Tires    ${cm_rack_type_config_menu}
+
+        #UtilityFunctions.Navigate to Currect Screen    Plant Config     ${pc_menu_name}     Plant Configuration     Cooper Tires        ${pm_plant_config_menu}
+
+
         #Close Browser
     #END
 

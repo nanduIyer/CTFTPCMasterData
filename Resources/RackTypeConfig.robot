@@ -30,12 +30,15 @@ Import Date from excel file
     Wait Until Page Contains    Upload Rack Type Configuration
 
     Set Browser Implicit Wait   ${long_wait_time}
-    Choose File     ${cm_rtc_imp_file_input}     ${imp_file_path}
+    #Choose File     ${cm_rtc_imp_file_input}     ${imp_file_path}
 
-    Element Should Be Enabled      ${cm_rtc_imp_upload_btn}
 
-    Set Browser Implicit Wait   ${long_wait_time}
-    Click Element   ${cm_rtc_imp_upload_btn}
+    Choose File     XPath://*[@id='BCOR-RackTypeConfigExcelViewImpl']/div/div/div/div/div/div[1]/div/div/div[1]/div/div/div/form/div/input[2]       ${imp_file_path}
+
+    #Element Should Be Enabled      ${cm_rtc_imp_upload_btn}
+
+    #Set Browser Implicit Wait   ${long_wait_time}
+    #Click Element   ${cm_rtc_imp_upload_btn}
 
     # Code to save needs to be added.
 
@@ -52,6 +55,7 @@ ScreenSuccess
     capture page screenshot    Images/${Uniqueid}RScreenSuccess.png
 
 ScreenFailed
+
     Log     Screen "${expectedpgtitle}" not found
     capture page screenshot    Images/${Uniqueid}CCscreenfailed.png
     Close browser

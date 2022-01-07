@@ -8,14 +8,12 @@ ${expectedpgtitle}     Cooper Tires
 *** Keywords ***
 Navigate to Plant Config
     Set Selenium Implicit Wait   ${short_wait_time}
-
     Click Element   ${pc_menu_name}
     Page Should Contain     Plant Configuration
     ${Pgtitle}=  Get Title
     Log Title
     Run Keyword IF  "${Pgtitle}"=="${expectedpgtitle}"    PCScreenSuccess
         ...     ELSE    PCScreenFailed
-
 
 PCScreenSuccess
     Log     Screen "${expectedpgtitle}" identified
@@ -28,7 +26,7 @@ PCScreenFailed
     capture page screenshot    Images/${Uniqueid}pcscreenfailed.png
     Close browser
 
-Reading Plant List Table
+Read Plant List Table
     Table Column Should Contain     ${pc_plant_table}    1   Plant ID
     ${NoofRows}=   Get Element Count   ${pc_plant_tbl_rows}
     ${NoofColumns}=   Get Element Count   ${pc_plant_tbl_cols}
@@ -40,7 +38,7 @@ Reading Plant List Table
     log     Number of rows found ${NoofRows}
     log     Number of columns found ${NoofColumns}
 
-Editing the Plant Record
+Edit the Plant Record
     ${FirstRecord}=    Get Text    xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[1]/td
     log     First Record ${FirstRecord}
 
