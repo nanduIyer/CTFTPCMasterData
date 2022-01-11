@@ -111,9 +111,10 @@ Export Plant Config Data
     Wait Until Element Contains    XPath://*[@id="gwt-uid-23"]     Confirm
     Press Keys     ${pc_plant_export_confirm_btn}   [RETURN]
     Set Browser Implicit Wait   ${long_wait_time}
+    click element    XPath://*[@id="FTPCApps-1332792659"]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[3]/img
 
 Validate Number of records
-    ${expval}=  Set Variable    Total No of Records :
+    ${expval}=  Set Variable    Total No of Records :s
     ${totnoofrows}=    Get Element Count   ${pc_plant_tbl_rows}
     Log    ${expval} ${totnoofrows}
     ${screennoofrecords}=   Get Text   XPath://*[@id="BCOR-PlantViewImpl"]/div/div/div/div/div/div[5]/div

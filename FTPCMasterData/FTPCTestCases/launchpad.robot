@@ -52,30 +52,53 @@ Testing with all Browser
     #block the below bock if the test need for all browsers
 
         Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      edge
-
         ${CurrentPgHdr}=     FTPCLogin.LoginToFTPC   ${username.${defUsername}}  ${password.${defpassword}}
-        Log     ${CurrentPgHdr}
-        Log     ${DPageContains}
+        #Log     ${CurrentPgHdr}
+        #Log     ${DPageContains}
         Run Keyword IF  "${CurrentPgHdr}"=="${DPageContains}"    LoginSuccess
         ...     ELSE    LoginFailed
 
     ################################################
-
-
-        #RackTypeConfig.Navigate to Rack Type Menu
-        #RackTypeConfig.Import Date from excel file
-        UtilityFunctions.Navigate to Currect Screen    Plant Config     ${top_left_image_menu}  Plant Configuration  ${plant_master_menu}   Cooper Tires    ${pm_plant_config_menu}
+        UtilityFunctions.Navigate to Currect Screen    Plant Config     ${top_left_image_menu}  Plant Master  ${plant_master_menu}   Cooper Tires    ${pm_plant_config_menu}
 
         #FTPCPlantConfiguration.Navigate to Plant Config
         FTPCPlantConfiguration.Read Plant List Table
         FTPCPlantConfiguration.Edit the Plant Record
-        FTPCPlantConfiguration.Validate Number of records
+        UtilityFunctions.Validate Number of records      Plant Config  ${pc_plant_tbl_rows}      ${pc_plant_tot_noofrec}
         FTPCPlantConfiguration.Test Search Box functionality
-        FTPCPlantConfiguration.Export Plant Config Data
+        #FTPCPlantConfiguration.Export Plant Config Data
 
-        UtilityFunctions.Navigate to Currect Screen    Rack Type Config    ${top_left_image_menu}  Rack Type Configuration  ${carrier_master_menu}   Cooper Tires    ${cm_rack_type_config_menu}
+        ################################################
+        # Plant Config Test Completed
+        # Area Config Test starts
+        ################################################
 
-        #UtilityFunctions.Navigate to Currect Screen    Plant Config     ${pc_menu_name}     Plant Configuration     Cooper Tires        ${pm_plant_config_menu}
+        UtilityFunctions.Navigate to Currect Screen    Area Config     ${top_left_image_menu}  Plant Master  ${plant_master_menu}   Cooper Tires    ${pm_area_config_menu}
+
+        ################################################
+        # Area Config Test Completed
+        # Workcenter type and group Config Test starts
+        ################################################
+
+        UtilityFunctions.Navigate to Currect Screen    WCType     ${top_left_image_menu}  Plant Master  ${plant_master_menu}   Cooper Tires    ${pm_wc_type_config_menu}
+
+        ################################################
+        # Workcenter type and group Config Test Completed
+        # Workcenter  Config Test starts
+        ################################################
+
+        UtilityFunctions.Navigate to Currect Screen    WCType     ${top_left_image_menu}  Plant Master  ${plant_master_menu}   Cooper Tires    ${pm_wc_config_menu}
+
+
+
+        ################################################
+        # Plant Config Test Completed
+        # Rack type Config Test starts
+        ################################################
+
+        UtilityFunctions.Navigate to Currect Screen    Rack Type Config    ${top_left_image_menu}  Carrier Master  ${carrier_master_menu}   Cooper Tires    ${cm_rack_type_config_menu}
+        #RackTypeConfig.Navigate to Rack Type Menu
+        #RackTypeConfig.Import Date from excel file
 
 
         #Close Browser

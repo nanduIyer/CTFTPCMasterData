@@ -32,7 +32,35 @@ ScreenFailed
     capture page screenshot    Images/${Uniqueid}${screenname}_failed.png
     Close browser
 
+Table Validations
+    [Arguments]   ${TableLocator}
+    Table Column Should Contain     ${pc_plant_table}    1   Plant ID
+    ${NoofRows}=   Get Element Count   ${pc_plant_tbl_rows}
+    ${NoofColumns}=   Get Element Count   ${pc_plant_tbl_cols}
+    FOR     ${index}    IN RANGE  1      ${NoofRows}+1
+        ${PlantID}=     GetText     xpath://*[@id="ResponsiveTable"]/div[2]/div[1]/table/tbody/tr[${index}]/td
+        Log      ${PlantID}
+        Log     ${index}
+    END
+    log     Number of rows found ${NoofRows}
+    log     Number of columns found ${NoofColumns}
 
 
-Do Table Validations
-     [Arguments]   ${TableLocator}
+Validate Number of records
+    [Arguments]      ${screenname}    ${totalrecordloc}    ${screentotrecloc}
+    ${expval}=  Set Variable    Total No of Records :
+    ${totnoofrows}=    Get Element Count  ${totalrecordloc}
+    Log    ${expval} ${totnoofrows}
+    ${screennoofrecords}=   Get Text   ${screentotrecloc}
+    Log     ${screennoofrecords}
+
+    #${scnlen}     Get Length    ${screennoofrecords}
+    #Log     ${scnlen}
+    Run Keyword IF  "${expval} ${totnoofrows}"=="${screennoofrecords}"    matchingfound
+        ...     ELSE    NoofRecordNotMatching
+
+matchingfound
+    Log     No of records in the Table and Screen are matching
+
+NoofRecordNotMatching
+    Log     No of records in the Table and Screen are not matching

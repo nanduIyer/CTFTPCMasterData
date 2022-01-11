@@ -60,6 +60,7 @@ pm_wc_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div
 pc_plant_table = "xpath://*[@id='ResponsiveTable']"
 pc_plant_tbl_rows = "xpath://*[@id='ResponsiveTable']/div[2]/div[1]/table/tbody/tr"
 pc_plant_tbl_cols = "xpath://*[@id='ResponsiveTable']/div[2]/div[1]/table/tbody/tr[1]/td"
+pc_plant_tot_noofrec = "XPath://*[@id='BCOR-PlantViewImpl']/div/div/div/div/div/div[5]/div"
 #Export data
 pc_plant_export_btn = "XPath://*[@id='BCOR-PlantViewImpl']/div/div/div/div/div/div[1]/div/div/div[2]/div/div[3]/img"
 pc_plant_export_file_input = "XPath://*[@id='CD-TextField.ExportDialog.File']"
