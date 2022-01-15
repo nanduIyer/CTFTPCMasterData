@@ -51,7 +51,7 @@ Testing with all Browser
     ################################################
     #block the below bock if the test need for all browsers
 
-        Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      edge
+        Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      chrome
         ${CurrentPgHdr}=     FTPCLogin.LoginToFTPC   ${username.${defUsername}}  ${password.${defpassword}}
         #Log     ${CurrentPgHdr}
         #Log     ${DPageContains}

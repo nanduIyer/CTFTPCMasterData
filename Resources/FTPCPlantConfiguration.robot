@@ -6,26 +6,6 @@ Variables   ../Library/Locators.py
 ${expectedpgtitle}     Cooper Tires
 
 *** Keywords ***
-Navigate to Plant Config
-    Set Selenium Implicit Wait   ${short_wait_time}
-    Click Element   ${pc_menu_name}
-    Page Should Contain     Plant Configuration
-    ${Pgtitle}=  Get Title
-    Log Title
-    Run Keyword IF  "${Pgtitle}"=="${expectedpgtitle}"    PCScreenSuccess
-        ...     ELSE    PCScreenFailed
-
-PCScreenSuccess
-    Log     Screen "${expectedpgtitle}" identified
-    Press Keys     ${pm_plant_config_menu}     [RETURN]
-
-    capture page screenshot    Images/${Uniqueid}PCScreenSuccess.png
-
-PCScreenFailed
-    Log     Screen "${expectedpgtitle}" not found
-    capture page screenshot    Images/${Uniqueid}pcscreenfailed.png
-    Close browser
-
 Read Plant List Table
     Table Column Should Contain     ${pc_plant_table}    1   Plant ID
     ${NoofRows}=   Get Element Count   ${pc_plant_tbl_rows}
@@ -112,24 +92,6 @@ Export Plant Config Data
     Press Keys     ${pc_plant_export_confirm_btn}   [RETURN]
     Set Browser Implicit Wait   ${long_wait_time}
     click element    XPath://*[@id="FTPCApps-1332792659"]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[3]/img
-
-Validate Number of records
-    ${expval}=  Set Variable    Total No of Records :s
-    ${totnoofrows}=    Get Element Count   ${pc_plant_tbl_rows}
-    Log    ${expval} ${totnoofrows}
-    ${screennoofrecords}=   Get Text   XPath://*[@id="BCOR-PlantViewImpl"]/div/div/div/div/div/div[5]/div
-    Log     ${screennoofrecords}
-
-    #${scnlen}     Get Length    ${screennoofrecords}
-    #Log     ${scnlen}
-    Run Keyword IF  "${expval} ${totnoofrows}"=="${screennoofrecords}"    NoofRecordMatching
-        ...     ELSE    NoofRecordNotMatching
-
-NoofRecordMatching
-    Log     No of records in the Table and Screen are matching
-
-NoofRecordNotMatching
-    Log     No of records in the Table and Screen are not matching
 
 Test Search Box functionality
     ${noofrows}=   Get Element Count   ${pc_plant_tbl_rows}
