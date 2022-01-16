@@ -9,6 +9,7 @@ very_long_wait_time = 10000
 #Global constants
 ApplicationURL = "http://ta0360:8080/FTPCApps/coopertires"
 defaultBrowser = "edge"
+defaultpagetitle = "Cooper Tires"
 
 #Database Connection
 database_server = "TA0365"
@@ -23,8 +24,8 @@ Login_txt_password = "id:CD-PasswordField.LogonView.Password"
 btn_login = "XPath://*[@id='CD-Button.LogonView.Login']"
 
 # Dashboard Elements
-db_pghdr = "XPath:/html/body/div[1]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div/div[1]/div/div/div/div"
-
+db_pghdr = "XPath://body/div[@id='FTPCApps-1332792659']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+reg_pghdr = "XPath://*[@id='BCOR-HeaderViewImpl']/div/div/div[1]/div/div/div/div"
 #######################################################################################################
 #Main Master Menu
 top_left_image_menu = "XPath://*[@id='FTPCApps-1332792659']/div/div[2]/div/div[1]/div/div/div[1]/div/div/div/div/div[1]/img"
@@ -73,11 +74,13 @@ pc_record_edit_plantid = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/
 pc_record_edit_plantname = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[2]/div/input"
 pc_record_edit_plantdesc = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[3]/div/input"
 #dropdownsuom
+#using Abs Xpath because the ID is dynamically changing.
 pc_record_edit_UOM = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[4]/div/div[2]/input"
 pc_record_edit_UOM_element = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[4]/div/div[2]/div"
 pc_record_edit_uom_metric = "XPath:/html/body/div[2]/div[4]/div/div[2]/table/tbody/tr[2]/td"
 pc_record_edit_uom_Imperial = "XPath:/html/body/div[2]/div[4]/div/div[2]/table/tbody/tr[1]/td"
 #dropdowndateformat
+#using Abs Xpath because the ID is dynamically changing.
 pc_record_edit_date_format = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[5]/div/div[2]/input"
 pc_record_edit_date_format_element = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[5]/div/div[2]/div"
 pc_record_edit_date_format_ddmmyy = "XPath:/html/body/div[2]/div[4]/div/div[2]/table/tbody/tr[1]/td"
@@ -90,6 +93,7 @@ pc_record_edit_date_format_yyddmm = "XPath:/html/body/div[2]/div[4]/div/div[2]/t
 pc_record_edit_date_format_yyyyddmm = "XPath:/html/body/div[2]/div[4]/div/div[2]/table/tbody/tr[8]/td"
 pc_record_edit_date_format_yyyymmdd = "XPath:/html/body/div[2]/div[4]/div/div[2]/table/tbody/tr[9]/td"
 #dropdown languages
+#using Abs Xpath because the ID is dynamically changing.
 pc_record_edit_language = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[6]/div/div[2]/input"
 pc_record_edit_language_element = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[1]/div/div[6]/div/div[2]/div"
 pc_record_edit_language_english = "XPath:/html/body/div[2]/div[4]/div/div[2]/table/tbody/tr[1]/td"
@@ -99,7 +103,6 @@ pc_record_edit_language_serbian = "XPath:/html/body/div[2]/div[4]/div/div[2]/tab
 pc_record_edit_saveandclose = "XPath://*[@id='BCOR-PlantCreateDialogImpl']/div/div/div[3]/div/div[1]/div"
 pc_record_edit_cancel = "XPath:/html/body/div[2]/div[3]/div/div/div[3]/div/div/div/div/div[3]/div/div[3]/div"
 #searchbox
-#pc_search_box = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[1]/div/div/div[1]/input"
 pc_search_box = "XPath://*[@id='BCOR-PlantViewImpl']/div/div/div/div/div/div[1]/div/div/div[1]/input"
 #Total Number of records
 pc_total_noofrecords = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[5]/div"
@@ -107,11 +110,12 @@ pc_total_noofrecords = "XPath:/html/body/div[1]/div/div[2]/div/div[2]/div/div/di
 #######################################################################################################
 
 # Part Master Menu's
-
+part_class_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[2]/div[2]/div/div[1]/div"
+part_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[2]/div[2]/div/div[2]/div"
 #######################################################################################################
 
 # Storage Master Menu's
-
+storage_config_menu = "XPath://*[@id='BCOR-CooperTiresNavBarImpl']/div/div/div/div/div/div[3]/div[2]/div/div/div"
 #######################################################################################################
 
 # Carrier Master Menu's

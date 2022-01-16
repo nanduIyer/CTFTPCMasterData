@@ -7,24 +7,32 @@ Variables   ../Library/Locators.py
 
 *** Keywords ***
 Navigate to Currect Screen
-    [Arguments]      ${screenname}    ${mainmenuimgpath}  ${pgContain}  ${top_master_menu}  ${expectedpgtitle}   ${second_menu}
+    [Arguments]      ${screenname}    ${mainmenuimgpath}    ${top_master_menu}   ${second_menu}     ${pgContain}    ${expectedpgdisplay}
     Set Selenium Implicit Wait   ${short_wait_time}
     Click Element   ${mainmenuimgpath}
     Page Should Contain     ${pgContain}
     ${Pgtitle}=  Get Title
-    Log Title
-    Run Keyword IF  "${Pgtitle}"=="${expectedpgtitle}"    ScreenSuccess     ${screenname}    ${mainmenuimgpath}    ${expectedpgtitle}   ${top_master_menu}   ${second_menu}
-        ...     ELSE    ScreenFailed    $(screenname)   ${expectedpgtitle}  ${top_master_menu}   ${second_menu}
+    #Log Title
+    Run Keyword IF  "${Pgtitle}"=="${defaultpagetitle}"    ScreenSuccess     ${screenname}    ${mainmenuimgpath}     ${top_master_menu}   ${second_menu}    ${Pgtitle}  ${expectedpgdisplay}
+        ...     ELSE    ScreenFailed    $(screenname)   ${Pgtitle}  ${top_master_menu}   ${second_menu}
+
+    #Set Selenium Implicit Wait   ${very_long_wait_time}
+    Wait Until Element Contains     ${reg_pghdr}       ${expectedpgdisplay}
+    ${PageHeader}=      Get Text    ${reg_pghdr}
+    log     ${PageHeader}
 
 ScreenSuccess
-    [Arguments]    ${screenname}  ${mainmenuimgpath}   ${expectedpgtitle}   ${top_master_menu}   ${second_menu}
-    Log     Screen "${expectedpgtitle}" identified
+    [Arguments]    ${screenname}      ${mainmenuimgpath}    ${top_master_menu}   ${second_menu}     ${Pgtitle}    ${expectedpgdisplay}
+    Log     Screen "${Pgtitle}" identified
     Set Selenium Implicit Wait   ${short_wait_time}
     Press Keys     ${top_master_menu}    [RETURN]
     Set Selenium Implicit Wait   ${short_wait_time}
     Press Keys     ${second_menu}    [RETURN]
+    Set Selenium Implicit Wait   ${very_long_wait_time}
+    Wait Until Page Contains    ${expectedpgdisplay}
+    Set Selenium Implicit Wait   ${short_wait_time}
     Click Element   ${mainmenuimgpath}
-    capture page screenshot    Images/${Uniqueid}${screenname}.png
+    #capture page screenshot    Images/${Uniqueid}${screenname}.png
 
 ScreenFailed
     [Arguments]    ${screenname}    ${expectedpgtitle}  ${top_master_menu}   ${second_menu}
