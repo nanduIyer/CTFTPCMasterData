@@ -61,8 +61,8 @@ Testing with all Browser
     ################################################
         UtilityFunctions.Navigate to Currect Screen    Plant Config     ${top_left_image_menu}   ${plant_master_menu}   ${pm_plant_config_menu}     Plant Master    Plant Configuration
 
-        #FTPCPlantConfiguration.Read Plant List Table
-        #FTPCPlantConfiguration.Edit the Plant Record
+        FTPCPlantConfiguration.Read Plant List Table
+        FTPCPlantConfiguration.Edit the Plant Record
         #UtilityFunctions.Validate Number of records      Plant Config  ${pc_plant_tbl_rows}      ${pc_plant_tot_noofrec}
         #FTPCPlantConfiguration.Test Search Box functionality
         #FTPCPlantConfiguration.Export Plant Config Data
@@ -153,6 +153,7 @@ Testing with all Browser
 
         UtilityFunctions.Navigate to Currect Screen    CarcassConfig    ${top_left_image_menu}    ${carrier_master_menu}   ${cm_Carcass_config_menu}     Carrier Master  Carcass/GT Rack Configuration
 
+        # UtilityFunctions.Navigate to Currect Screen    InputQualityDev    ${top_left_image_menu}    ${deviation_master_menu}  Deviation Master  ${cm_Carcass_config_menu}     Deviation Activation
 
 
         #Close Browser
