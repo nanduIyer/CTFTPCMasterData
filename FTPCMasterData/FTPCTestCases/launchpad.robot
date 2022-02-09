@@ -30,7 +30,6 @@ ${DPageContains}    Dashboard
 &{password}    admin=123  operator=123
 ${defUsername}  admin
 ${defpassword}  admin
-
 *** Test Cases ***
 Testing with all Browser
     [Documentation]     Launching the browser
