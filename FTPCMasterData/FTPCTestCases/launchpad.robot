@@ -12,9 +12,11 @@ Resource  ../../Resources/UtilityFunctions.robot
 
 Variables   ../Library/Locators.py
 
+
 Suite Setup  Connect To Database    pymssql     ${database_name}    ${database_user}   ${database_password}   ${database_server}   ${database_port}
 #Suite Setup    Launchbrowser.LaunchBrowser     ${FTPCPlantOperationsURL.${defenv}}      ${Browser}[1]
 #Suite Teardown   Launchbrowser.LogOutandCloseBrowser
+Suite Teardown   Disconnect From Database
 
 
 
@@ -31,6 +33,10 @@ ${DPageContains}    Dashboard
 ${defUsername}  admin
 ${defpassword}  admin
 *** Test Cases ***
+#Check DB Rowcount
+#    ${rowcount}  row count    Select * from site_uv
+#    Log     Rowcount is ${rowcount}
+
 Testing with all Browser
     [Documentation]     Launching the browser
     ${length}=    Get Length    ${Browser}

@@ -1,6 +1,10 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library    DatabaseLibrary
+Library    OperatingSystem
+
 Variables   ../Library/Locators.py
+
 
 *** Variables ***
 
